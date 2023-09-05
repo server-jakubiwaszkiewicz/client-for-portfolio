@@ -7,7 +7,7 @@ import ContactMe from '../components/ContactMe';
 import { AiOutlineArrowUp } from 'react-icons/ai';
 import Loading from '../components/Loading';
 
-import { useLocation, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 /*
 const Hero =  lazy(() => import('../components/Hero'));
 const About =  lazy(() => import('../components/About'));
@@ -18,8 +18,7 @@ const ContactMe =  lazy(() => import('../components/ContactMe'));
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-
-function Home() {
+function Home({ aboutData, expData }) {
 
   const {aboutDataAPI, expDataAPI} = useLoaderData().results;
 
@@ -40,14 +39,14 @@ function Home() {
         <section id="about" className="snap-center">
           <About
             photo={aboutDataAPI.data ? `${API_URL}${aboutDataAPI.data.attributes.newPhoto2.data.attributes.formats.large.url}` : ''}
-            desc={aboutDataAPI.data.attributes.description}
+            desc={aboutDataAPI.data ? aboutDataAPI.data.attributes.description : ''}
           />
         </section>
 
         {/* {Experience} */}
         <section id="experience" className="snap-center">
           <WorkExperience
-            expDataAPI={expDataAPI}
+            expDataAPI={expDataAPI ? expDataAPI : ""}
           />
         </section>
 
