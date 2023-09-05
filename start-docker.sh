@@ -32,18 +32,15 @@ else
   exit 1
 fi
 
-# Prompt for the port to be used
+
 app_port=$PORT
+host_port=$PORT
 
 # Check if the port is defined in the .env file
 if [ -z "$app_port" ]; then
   echo "PORT variable not found in .env file. Please create one with the necessary variables."
   exit 1
 fi
-
-# Prompt for the port to be used
-echo "Enter the port for the container on the host (outside Docker): "
-read host_port
 
 # Get the name of the current directory (the script's parent directory)
 container_name="$(basename "$(pwd)")"
