@@ -16,8 +16,11 @@ COPY . .
 # Build the React app
 RUN npm run build
 
+# Define a build argument for the port, with a default value of 3000
+ARG PORT=3000
+
 # Expose a port
-EXPOSE 3000
+EXPOSE $PORT
 
 # Start the application
 CMD ["npm", "start"]
