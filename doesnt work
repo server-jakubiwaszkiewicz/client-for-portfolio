@@ -1,0 +1,35 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run_pull:
+    name: run pull
+    runs-on: ubuntu-latest
+  
+  
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up SSH
+      # check this thread to understand why its needed:
+      # https://stackoverflow.com/a/70447517
+      run: |
+        mkdir ~/.ssh
+        touch ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519 && chmod 700 ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+        ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
+        echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJP1dKOubZG3K2vezFyE5PjmA0ikP4zWhbR3pIhhcuqP" > ~/.ssh/id_ed25519.pub
+        cat ~/.ssh/id_ed25519.pub >> ~/.ssh/authorized_keys
+        cat ~/.ssh/id_ed25519.pub
+        ssh-add ~/.ssh/id_ed25519
+
+    - name: Connect and pull
+      run: ssh -i ~/.ssh/id_ed25519 -v ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && chmod +x ./pull.sh && ./pull.sh && exit"
+      
+    - name: Cleanup
+      run: rm -rf ~/.ssh
