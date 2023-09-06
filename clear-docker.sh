@@ -14,3 +14,5 @@ docker stop "$container_name" && docker rm "$container_name"
 
 # Remove the Docker image
 docker rmi "$image_name"
+
+echo "Docker image and container removed."
