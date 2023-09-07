@@ -22,7 +22,6 @@ import { useLocation, defer } from 'react-router-dom';
 const API_EXP_URL = `${process.env.REACT_APP_API_URL_EXP}?populate=*`;
 const API_ABOUT_URL = `${process.env.REACT_APP_API_URL_ABOUT}?populate=*`;
 const API_ABOUT_PROJECTS = `${process.env.REACT_APP_API_URL_PROJECTS}?populate=*`;
-const API_URL = process.env.REACT_APP_API_URL;
 
 const classNameString =`
     text-white

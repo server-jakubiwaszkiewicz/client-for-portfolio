@@ -1,8 +1,5 @@
 import React from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-
-const API_PROJECTS_URL = 'http://localhost:3001/api/data-projects';
 
 export default function Portfolio() {
 
