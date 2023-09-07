@@ -13,9 +13,6 @@ RUN npm install
 # Copy all source code to the working directory
 COPY . .
 
-# Build the React app
-RUN npm run build
-
 # Define a build argument for the port, with a default value of 3000
 ARG PORT=3000
 

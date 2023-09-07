@@ -18,7 +18,7 @@ const ContactMe =  lazy(() => import('../components/ContactMe'));
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-function Home() {
+function Home({ aboutData, expData }) {
 
   const {aboutDataAPI, expDataAPI} = useLoaderData().results;
 
