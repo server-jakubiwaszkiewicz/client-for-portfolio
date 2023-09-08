@@ -5,14 +5,15 @@ import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import PhoneIcon from '@mui/icons-material/Phone';
 
 
-function ContactMe({pageInfo}) {
+function ContactMe({ data }) {
+
   const { register, handleSubmit } = useForm();
   const onSubmit = (formData) => {
     const subject = encodeURIComponent(formData.subject);
     const body = encodeURIComponent(
       `Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`
     );
-    window.location.href = `mailto:calus.magda2@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${data.email}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -32,21 +33,21 @@ function ContactMe({pageInfo}) {
             <PhoneIcon
               className='animate-pulse h-7 w-7 text-[#ffffff]'
             />
-            <p className="text-xl md:text-2xl">1233453456</p>
+            <p className="text-xl md:text-2xl">{data.name}</p>
           </div>
 
           <div className='flex items-center lg:space-x-5 space-x-3 justify-center'>
             <EmailIcon
               className='animate-pulse h-7 w-7 text-[#ffffff]'
             />
-            <p className="text-xl md:text-2xl">calus.magda2@gmail.com</p>
+            <p className="text-xl md:text-2xl">{data.email}</p>
           </div>
 
           <div className='flex items-center lg:space-x-5 space-x-3 text-md justify-center'>
             <FmdGoodIcon
               className='animate-pulse h-7 w-7 text-[#ffffff]'
             />
-            <p className="text-xl md:text-2xl">pociąg</p>
+            <p className="text-xl md:text-2xl">{data.location}</p>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-2'>
@@ -63,7 +64,6 @@ function ContactMe({pageInfo}) {
               Submit
             </button>
           </form>
-
         </div>
     </div>
   )

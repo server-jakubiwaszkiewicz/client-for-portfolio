@@ -20,7 +20,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 function Home({ aboutData, expData }) {
 
-  const {aboutDataAPI, expDataAPI} = useLoaderData().results;
+  const { aboutDataAPI, expDataAPI } = useLoaderData().results;
 
 
   return (
@@ -57,7 +57,9 @@ function Home({ aboutData, expData }) {
 
         {/* {Contact Me} */}
         <section id="contact" className="snap-start">
-          <ContactMe/>
+          <ContactMe
+            data = {aboutDataAPI.data.attributes ? aboutDataAPI.data.attributes : ''}
+          />
         </section>
         
         <div className="sticky bottom-5 w-full">
