@@ -8,6 +8,7 @@ export default function Project({ data }) {
   console.log( dataProjectsAPI )
 
   const[mainImg, setMainImg] = useState(0)
+  
   const images = [
     "https://images.pexels.com/photos/1163194/pexels-photo-1163194.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
