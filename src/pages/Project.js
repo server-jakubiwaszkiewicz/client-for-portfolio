@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 export default function Project({ data }) {
+
+  let { dataProjectsAPI } = useLoaderData().results;
+
+  console.log( dataProjectsAPI )
 
   const[mainImg, setMainImg] = useState(0)
   const images = [

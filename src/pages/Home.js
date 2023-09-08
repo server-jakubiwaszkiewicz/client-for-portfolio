@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import About from '../components/About'; 
 import WorkExperience from '../components/WorkExperience';
 import Projects from '../components/Projects';
 import ContactMe from '../components/ContactMe';
 import { AiOutlineArrowUp } from 'react-icons/ai';
-import Loading from '../components/Loading';
 
 import { useLoaderData } from 'react-router-dom';
 /*
@@ -21,7 +19,6 @@ const API_URL = process.env.REACT_APP_API_URL;
 function Home({ aboutData, expData }) {
 
   const { aboutDataAPI, expDataAPI } = useLoaderData().results;
-
 
   return (
     <div>
