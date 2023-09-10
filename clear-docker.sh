@@ -4,7 +4,7 @@
 parent_folder_name="$(basename "$(pwd)")"
 
 # Specify the image name based on the parent folder name
-image_name="image-$parent_folder_name"
+image_name="$parent_folder_name"
 
 # Specify the container name based on the parent folder name
 container_name="$parent_folder_name"
