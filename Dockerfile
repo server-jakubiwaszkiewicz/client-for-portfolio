@@ -26,7 +26,7 @@ COPY --from=build /app/build /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Copy your custom Nginx configuration (if needed)
-# COPY nginx-custom.conf /etc/nginx/conf.d/
+COPY nginx-custom.conf /etc/nginx/conf.d/
 
 # Expose the port Nginx will listen on
 EXPOSE 3000
