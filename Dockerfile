@@ -1,23 +1,35 @@
-# Use an official Node.js runtime as the base image
-FROM node:latest
+# Stage 1: Build the React app
+FROM node:latest AS build
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
+# Copy package.json and package-lock.json (if applicable)
 COPY package*.json ./
 
-# Install project dependencies
-RUN npm install
+# Install dependencies
+RUN npm ci --only=production
 
-# Copy all source code to the working directory
+# Copy the rest of the app source code
 COPY . .
 
-# Define a build argument for the port, with a default value of 3000
-ARG PORT=3000
+# Build the React app
+RUN npm run build
 
-# Expose a port
-EXPOSE $PORT
+# Stage 2: Serve the React app using a lightweight server
+FROM nginx:alpine
 
-# Start the application
-CMD ["npm", "start"]
+# Copy the built app from the build stage
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Remove default Nginx configuration
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copy your custom Nginx configuration (if needed)
+# COPY nginx-custom.conf /etc/nginx/conf.d/
+
+# Expose the port Nginx will listen on
+EXPOSE 3000
+
+# Start Nginx in the foreground
+CMD ["nginx", "-g", "daemon off;"]
