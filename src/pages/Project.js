@@ -39,7 +39,7 @@ export default function Project() {
               {projectsData.attributes.description}
             </p>
             <div className="info">
-              <span>Id: {projectsData.id}</span>
+              <span>id: {projectsData.id}</span>
               <br/>
               <span>Technologies used: {projectsData.attributes.technologies}</span>
             </div>
