@@ -3,13 +3,7 @@ import ExpCard from './ExpCard';
 
 function WorkExperience({ expData, expDataAPI }) {
 
-    // console.log(expDataAPI.data)
-    // above array of data exp
-
     const API_URL = process.env.REACT_APP_API_URL;
-
-    console.log(expDataAPI.data[0])
-
     return (
         <div>
             <div className='
@@ -45,7 +39,7 @@ function WorkExperience({ expData, expDataAPI }) {
                     {expDataAPI.data.map((item) => (
                         <ExpCard
                             key={item.id}
-                            img={`${API_URL}${item.attributes.imgNew.data.attributes.formats.large.url}`}
+                            img={`${API_URL}${item.attributes.image.data.attributes.formats.large.url}`}
                             title={item.attributes.title}
                             date={item.attributes.date}
                             whatHaveIDoneHere={item.attributes.description}

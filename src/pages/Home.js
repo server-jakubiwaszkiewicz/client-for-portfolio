@@ -15,7 +15,6 @@ const ContactMe =  lazy(() => import('../components/ContactMe'));
 */
 
 const API_URL = process.env.REACT_APP_API_URL;
-
 function Home({ aboutData, expData }) {
 
   const { aboutDataAPI, expDataAPI } = useLoaderData().results;
@@ -27,23 +26,23 @@ function Home({ aboutData, expData }) {
         */}
         <section id="hero" className="snap-start">
           <Hero
-            photo={aboutDataAPI.data ? `${API_URL}${aboutDataAPI.data.attributes.newPhoto1.data.attributes.formats.large.url}` : ''}
-            name={aboutDataAPI.data ? aboutDataAPI.data.attributes.name : ''}
+            photo={`${API_URL}${aboutDataAPI.data.attributes.photos.data[0].attributes.formats.large.url}`}
+            name={aboutDataAPI.data.attributes.name}
           />
         </section>
 
         {/* {About} */}
         <section id="about" className="snap-center">
           <About
-            photo={aboutDataAPI.data ? `${API_URL}${aboutDataAPI.data.attributes.newPhoto2.data.attributes.formats.large.url}` : ''}
-            desc={aboutDataAPI.data ? aboutDataAPI.data.attributes.description : ''}
+            photo={`${API_URL}${aboutDataAPI.data.attributes.photos.data[0].attributes.formats.large.url}`}
+            desc={aboutDataAPI.data.attributes.description}
           />
         </section>
 
         {/* {Experience} */}
         <section id="experience" className="snap-center">
           <WorkExperience
-            expDataAPI={expDataAPI ? expDataAPI : ""}
+            expDataAPI={expDataAPI}
           />
         </section>
 
