@@ -19,7 +19,6 @@ export default function Project() {
     arr.push(`${API_URL}${url}`)
   }
   // max 5 zdjęć
-    console.log(projectsData)
     return (
       <div className="py-[20px] px-[50px] flex justify-center gap-4">
         <div className="flex gap-2 flex-col lg:flex-row justify-center items-center lg:items-start lg:justify-normal">
