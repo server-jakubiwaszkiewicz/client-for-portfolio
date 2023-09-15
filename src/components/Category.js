@@ -1,26 +1,30 @@
 import React from 'react'
+import { motion } from 'framer-motion';
 
 export default function Category({categoryName, categoryImg}) {
     return (
-        <div className='
-            bg-black
-            flex
-            flex-col
-            justify-center
-            items-center
-            bg-opacity-50
-            rounded-xl
-            min-w-[300px]
-            p-2
-            m-3
-            hover:m-1
-            hover:p-4
-            lg:p-5
-            lg:m-10
-            lg:hover:p-10
-            lg:hover:m-5
-            hover:bg-opacity-80
-            transition-all
+        <motion.div
+            whileHover={{
+                opacity: 1,
+                scale: 1.1,
+                boxShadow: "10px 10px 0 rgba(255, 255, 255, 0.1)",
+            }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            whileTap={{ scale: 0.9 }}
+            className='
+                bg-black
+                flex
+                flex-col
+                justify-center
+                items-center
+                bg-opacity-50
+                rounded-xl
+                min-w-[300px]
+                p-2
+                m-3
+                lg:p-5
+                lg:m-10
         '>
             <img
                 className='
@@ -45,6 +49,6 @@ export default function Category({categoryName, categoryImg}) {
             '>
                 &nbsp;{categoryName}
             </h1>
-        </div>
+        </motion.div>
     )
 }

@@ -11,7 +11,7 @@ function About({ desc, photo }) {
                     opacity: 1,
                 }}
                 transition={{
-                    duration: 1,
+                    duration: 0.5,
                 }}
                 className='flex flex-col h-screen md:text:left md:flex-row max-w-7xl px-10 justify-center mx-auto items-center'
             >
@@ -22,15 +22,13 @@ function About({ desc, photo }) {
                         <motion.img
                             src={photo}
                             initial={{
-                                x: -200,
                                 opacity: 0,
                             }}
                             whileInView={{
-                                x: 0,
                                 opacity: 1,
                             }}
                             transition={{
-                                duration: 0.5,
+                                duration: 1,
                             }}
                             viewport={{ once: true }}
                             className='

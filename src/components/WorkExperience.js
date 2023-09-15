@@ -1,9 +1,10 @@
 import React from 'react';
 import ExpCard from './ExpCard';
-
+import { motion } from 'framer-motion';
 function WorkExperience({ expData, expDataAPI }) {
 
     const API_URL = process.env.REACT_APP_API_URL;
+    console.log(`${API_URL}${expDataAPI.data[1].attributes.image.data.attributes.formats.small.url}`)
     return (
         <div>
             <div className='
@@ -24,22 +25,23 @@ function WorkExperience({ expData, expDataAPI }) {
                     &nbsp;Experience
                 </h1>
                 <div
+                    
                     className='
-                    relative
-                    w-full
-                    flex
-                    overflow-x-scroll
-                    overflow-y-hidden
-                    snap-x  
-                    snap-mandatory
-                    z-20 scrollbar
-                    scrollbar-track-gray-400/20
-                    scrollbar-thumb-[#ffffff]'
+                        relative
+                        w-full
+                        flex
+                        overflow-x-scroll
+                        overflow-y-hidden
+                        snap-x  
+                        snap-mandatory
+                        z-20 scrollbar
+                        scrollbar-track-gray-400/20
+                        scrollbar-thumb-[#ffffff]'
                 >
                     {expDataAPI.data.map((item) => (
                         <ExpCard
                             key={item.id}
-                            img={`${API_URL}${item.attributes.image.data.attributes.formats.large.url}`}
+                            img={`${API_URL}${item.attributes.image.data.attributes.formats.large?.url || item.attributes.image.data.attributes.formats.small.url}`}
                             title={item.attributes.title}
                             date={item.attributes.date}
                             whatHaveIDoneHere={item.attributes.description}

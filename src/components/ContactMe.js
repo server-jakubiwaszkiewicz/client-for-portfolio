@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import EmailIcon from '@mui/icons-material/Email';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import PhoneIcon from '@mui/icons-material/Phone';
-
+import { motion } from 'framer-motion';
 
 function ContactMe({ data }) {
 
@@ -17,7 +17,12 @@ function ContactMe({ data }) {
   };
 
   return (
-    <div className='relative h-screen flex flex-col text-center lg:px-10 md:text-left max-w-4xl justify-center mx-auto items-center'>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className='relative h-screen flex flex-col text-center lg:px-10 md:text-left max-w-4xl justify-center mx-auto items-center'
+    >
         <h1 className='sectionTitle'>
             &nbsp;Contact
         </h1>
@@ -47,7 +52,7 @@ function ContactMe({ data }) {
             <FmdGoodIcon
               className='animate-pulse h-7 w-7 text-[#ffffff]'
             />
-            <p className="text-xl md:text-2xl">{data.location}</p>
+            <p className="text-xl md:text-2xl">{data.localization}</p>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-2'>
@@ -65,7 +70,7 @@ function ContactMe({ data }) {
             </button>
           </form>
         </div>
-    </div>
+    </motion.div>
   )
 }
 
