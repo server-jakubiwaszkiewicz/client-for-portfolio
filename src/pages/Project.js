@@ -11,11 +11,17 @@ export default function Project() {
   const { id } = useParams();
   const[mainImg, setMainImg] = useState(0)
 
-  const dataID = Number(id)-1
-  const projectsData = dataProjectsAPI.data[dataID]
   let arr=[]
-  for (let i = 0; i < dataProjectsAPI.data[Number(id)-1].attributes.images.data.length; i++) {
-    let url = dataProjectsAPI.data[Number(id)-1].attributes.images.data[i].attributes.formats.medium.url
+  let projectImages = []
+  let projectsData = []
+  for (let i = 0; i < dataProjectsAPI.data.length; i++) {
+    if (dataProjectsAPI.data[i].id == Number(id)) {
+      projectImages = dataProjectsAPI.data[i].attributes.images.data
+      projectsData = dataProjectsAPI.data[i]
+    }
+  }
+  for (let i = 0; i < projectImages.length; i++) {
+    let url = projectImages[i].attributes.formats.small.url
     arr.push(`${API_URL}${url}`)
   }
   // max 5 zdjęć

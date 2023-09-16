@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './pages/Home';
@@ -7,6 +6,8 @@ import {
   createBrowserRouter,
   RouterProvider,
   Outlet,
+  defer,
+  useLocation
 } from "react-router-dom";
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -17,7 +18,6 @@ import FooterAlt from './components/FooterAlt';
 
 // data for tests 
 import { dataAbout, dataProjects, dataExperience } from './data.js';
-import { useLocation, defer } from 'react-router-dom';
 
 const API_EXP_URL = `${process.env.REACT_APP_API_URL_EXP}?populate=*`;
 const API_ABOUT_URL = `${process.env.REACT_APP_API_URL_ABOUT}?populate=*`;

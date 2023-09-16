@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 function WorkExperience({ expData, expDataAPI }) {
 
     const API_URL = process.env.REACT_APP_API_URL;
-    console.log(`${API_URL}${expDataAPI.data[1].attributes.image.data.attributes.formats.small.url}`)
     return (
         <div>
             <div className='
