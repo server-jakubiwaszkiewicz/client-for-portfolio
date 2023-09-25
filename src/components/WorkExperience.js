@@ -33,9 +33,12 @@ function WorkExperience({ expData, expDataAPI }) {
                         overflow-y-hidden
                         snap-x  
                         snap-mandatory
-                        z-20 scrollbar
+                        z-20
+                        scrollbar
                         scrollbar-track-gray-400/20
-                        scrollbar-thumb-[#ffffff]'
+                        scrollbar-thumb-[#ffffff]
+                        mt-10'
+                        
                 >
                     {expDataAPI.data.map((item) => (
                         <ExpCard

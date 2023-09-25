@@ -13,11 +13,14 @@ function About({ desc, photo }) {
                 transition={{
                     duration: 0.5,
                 }}
-                className='flex flex-col h-screen md:text:left md:flex-row max-w-7xl px-10 justify-center mx-auto items-center'
+                className='relative flex flex-col h-screen md:text:left md:flex-row max-w-7xl lg:px-10 px-3 justify-center mx-auto items-center'
             >
-            {/* <h3 className='sectionTitle'>About</h3> */}
+                
+                <h3 className='sectionTitle'>
+                    &nbsp;About
+                </h3>
                     <div
-                        className='bg-black bg-opacity-50 rounded-lg p-10 flex flex-col md:text:left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'
+                        className='mt-10 bg-black bg-opacity-50 rounded-lg lg:p-10 p-5 flex flex-col md:text-left md:flex-row max-w-7xl justify-evenly mx-auto items-center'
                     >
                         <motion.img
                             src={photo}
@@ -32,7 +35,8 @@ function About({ desc, photo }) {
                             }}
                             viewport={{ once: true }}
                             className='
-                                mb-10
+                                lg:mb-10
+                                mb-5
                                 w-30
                                 h-30
                                 object-cover

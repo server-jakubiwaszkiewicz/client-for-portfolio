@@ -17,7 +17,6 @@ import Project from './pages/Project';
 import FooterAlt from './components/FooterAlt';
 
 // data for tests 
-import { dataAbout, dataProjects, dataExperience } from './data.js';
 
 const API_EXP_URL = `${process.env.REACT_APP_API_URL_EXP}?populate=*`;
 const API_ABOUT_URL = `${process.env.REACT_APP_API_URL_ABOUT}?populate=*`;
@@ -65,10 +64,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home
-            aboutData = {dataAbout}
-            expData = {dataExperience}
-        />,
+        element: <Home/>,
         loader: async ({ request, params }) => {
           let aboutDataAPI = await fetch(API_ABOUT_URL)
           let expDataAPI = await fetch(API_EXP_URL)
@@ -83,9 +79,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/projects",
-        element: <Portfolio
-            data = {dataProjects}
-        />,
+        element: <Portfolio/>,
         loader: async ({ request, params }) => {
           let dataProjectsAPI = await fetch(API_ABOUT_PROJECTS)
           if (!dataProjectsAPI.ok) throw new Error(await dataProjectsAPI.text())
@@ -97,9 +91,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/project/:id",
-        element: <Project
-            data = {dataProjects}
-        />,
+        element: <Project/>,
         loader: async ({ request, params }) => {
           let dataProjectsAPI = await fetch(API_ABOUT_PROJECTS)
           if (!dataProjectsAPI.ok) throw new Error(await dataProjectsAPI.text())

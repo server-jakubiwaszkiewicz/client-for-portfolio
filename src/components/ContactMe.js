@@ -1,5 +1,5 @@
 import React from 'react'
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import EmailIcon from '@mui/icons-material/Email';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -38,21 +38,21 @@ function ContactMe({ data }) {
             <PhoneIcon
               className='animate-pulse h-7 w-7 text-[#ffffff]'
             />
-            <p className="text-xl md:text-2xl">{data.name}</p>
+            <p className="text-xl lg:text-2xl">{data.name}</p>
           </div>
 
           <div className='flex items-center lg:space-x-5 space-x-3 justify-center'>
             <EmailIcon
               className='animate-pulse h-7 w-7 text-[#ffffff]'
             />
-            <p className="text-xl md:text-2xl">{data.email}</p>
+            <p className="text-xl lg:text-2xl">{data.email}</p>
           </div>
 
           <div className='flex items-center lg:space-x-5 space-x-3 text-md justify-center'>
             <FmdGoodIcon
               className='animate-pulse h-7 w-7 text-[#ffffff]'
             />
-            <p className="text-xl md:text-2xl">{data.localization}</p>
+            <p className="text-xl lg:text-2xl">{data.localization}</p>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-2'>

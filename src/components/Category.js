@@ -42,10 +42,11 @@ export default function Category({categoryName, categoryImg}) {
                 lg:tracking-[8px]
                 text-white
                 text-md
-                transform
                 lg:text-md
                 mt-1
                 lg:mt-3
+                font-semibold
+                text-center
             '>
                 &nbsp;{categoryName}
             </h1>

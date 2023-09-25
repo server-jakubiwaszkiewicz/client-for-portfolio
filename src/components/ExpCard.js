@@ -80,7 +80,15 @@ function ExpCard({ img, whatHaveIDoneHere, title, date }) {
                         duration: 0.5,
                     }}
                     viewport={{ once: true }}
-                    className='text-slate-200 text-md sm:w-[500px] w-[250px] text-justify'
+                    className='text-slate-200
+                    text-md
+                    sm:w-[500px]
+                    w-[250px]
+                    text-justify
+                    overflow-auto
+                    scrollbar
+                    scrollbar-track-gray-400/20
+                    scrollbar-thumb-[#ffffff]'
                 >
                     {whatHaveIDoneHere}
                 </motion.pre>
